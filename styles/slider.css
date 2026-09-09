@@ -84,7 +84,7 @@
 /*          СТРЕЛКИ           */
 /* ========================= */
 
-.arrow {
+.photo-slider .arrow {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -101,11 +101,11 @@
   cursor: pointer;
 }
 
-.arrow-up {
+.photo-slider .arrow-up {
   top: 20px;
 }
 
-.arrow-down {
+.photo-slider .arrow-down {
   bottom: 20px;
 }
 

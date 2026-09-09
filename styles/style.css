@@ -114,13 +114,13 @@
    transform: scale(0.98);
  }
 
- .arrow {
+ .folder-arrow {
    display: inline-flex;
    width: 18px;
    transition: transform 0.25s ease;
  }
 
- .folder.open>.folder-button .arrow {
+ .folder.open>.folder-button .folder-arrow {
    transform: rotate(90deg);
  }
 
