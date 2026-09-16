@@ -129,6 +129,38 @@
   bottom: 20px;
 }
 
+/* ================================= */
+/*       БЕЙДЖ "ДОП. ИНФО"           */
+/* ================================= */
+.main-photo-slide {
+  position: relative;
+  cursor: pointer;
+
+}
+
+/* Сам бейдж */
+.additional-info-label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  padding: 8px 14px;
+  background: #20c83a;
+  color: white;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: 600;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+/* На компьютере показываем при наведении */
+.main-photo-slide:hover .additional-info-label {
+  opacity: 1;
+}
+
+
 /* Телефон */
 @media (max-width: 600px) {
   .close-slider {
@@ -151,5 +183,13 @@
 
   .photo-slider .arrow-down {
     bottom: 10px;
+  }
+
+  .additional-info-label {
+    opacity: 1;
+    top: 15px;
+    right: 15px;
+    padding: 7px 11px;
+    font-size: 14px;
   }
 }

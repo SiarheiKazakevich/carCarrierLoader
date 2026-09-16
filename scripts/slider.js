@@ -94,10 +94,27 @@ function openSlider(carName) {
                 Добавляем её в слайдер.
             */
       const slide = document.createElement('div');
-      slide.className = 'slide';
+      slide.className = 'slide main-photo-slide'; // добавили main-photo-slide для Infolabel
       const img = document.createElement('img');
       img.src = imagePath;
       img.alt = carName;
+
+      // ==========================================
+      // ПРОВЕРЯЕМ, ЕСТЬ ЛИ ДОПОЛНИТЕЛЬНЫЕ ФОТО
+      // ========================================== от 105 до 117
+      const infoCheck = new Image();
+      infoCheck.onload = function () {
+
+        // Дополнительные фото существуют
+        // добавляем надпись доп.инфо
+
+        const infoLabel = document.createElement('div');
+        infoLabel.className = 'additional-info-label';
+        infoLabel.innerHTML = 'ⓘ Доп. инфо';
+        slide.appendChild(infoLabel);
+      };
+      // Проверяем первое дополнительное фото
+      infoCheck.src = `photos/${carName}/${photoNumber}/1.jpg`;
 
       // ВАЖНО:
       // Клик по основной фотографии
