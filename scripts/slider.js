@@ -64,98 +64,250 @@ buttons.forEach(button => {
 });
 
 /* ================================= */
-/*          ОТКРЫТЬ СЛАЙДЕР          */
+/*          ОТКРЫТЬ СЛАЙДЕР     читает только фото jpeg формат     */
+/* ================================= */
+
+//function openSlider(carName) {
+/* Очищаем старые фотографии 
+slidesContainer.innerHTML = '';
+currentSlide = 0;
+totalSlides = 0;*/
+/*
+        Проверяем фотографии по очереди:
+ 
+        photos/Renault Master/1.jpg
+        photos/Renault Master/2.jpg
+        photos/Renault Master/3.jpg
+        ...
+    
+let number = 1;
+
+function loadPhoto() {
+  const imagePath = `photos/${carName}/${number}.jpg`;
+  const image = new Image();
+  image.onload = function () {
+
+    const photoNumber = number;*/
+
+/*
+          Фотография существует.
+          Добавляем её в слайдер.
+     
+const slide = document.createElement('div');
+slide.className = 'slide main-photo-slide'; // добавили main-photo-slide для Infolabel
+const img = document.createElement('img');
+img.src = imagePath;
+img.alt = carName;
+
+// ==========================================
+// ПРОВЕРЯЕМ, ЕСТЬ ЛИ ДОПОЛНИТЕЛЬНЫЕ ФОТО
+// ========================================== от 105 до 117
+const infoCheck = new Image();
+infoCheck.onload = function () { 
+
+  // Дополнительные фото существуют
+  // добавляем надпись доп.инфо
+
+  const infoLabel = document.createElement('div');
+  infoLabel.className = 'additional-info-label';
+  infoLabel.innerHTML = 'ⓘ Доп. инфо';
+  slide.appendChild(infoLabel);
+};
+// Проверяем первое дополнительное фото
+infoCheck.src = `photos/${carName}/${photoNumber}/1.jpg`;
+
+// ВАЖНО:
+// Клик по основной фотографии
+// открывает дополнительный слайдер
+
+img.addEventListener('click', function () {
+  openInfoSlider(
+    carName,
+    photoNumber
+  );
+});
+
+
+
+slide.appendChild(img);
+slidesContainer.appendChild(slide);
+totalSlides++;
+number++;*/
+/* Проверяем следующую 
+loadPhoto();
+};
+
+image.onerror = function () {*/
+/*
+          Фотографии больше нет.
+          Значит заканчиваем поиск.
+      
+if (totalSlides === 0) {
+  alert(
+    `Фотографии для "${carName}" не найдены`
+  );
+  return;
+}*/
+/* Открываем слайдер 
+photoSlider.classList.add('active');
+updateSlide();
+};
+image.src = imagePath;
+}
+loadPhoto();
+}
+*/
+/* ================================= */
+/*   начало       ОТКРЫТЬ СЛАЙДЕР     читает  фото jpeg и webp формат     */
 /* ================================= */
 
 function openSlider(carName) {
-  /* Очищаем старые фотографии */
-  slidesContainer.innerHTML = '';
+  currentCar = carName;
   currentSlide = 0;
   totalSlides = 0;
-  /*
-          Проверяем фотографии по очереди:
-  
-          photos/Renault Master/1.jpg
-          photos/Renault Master/2.jpg
-          photos/Renault Master/3.jpg
-          ...
-      */
-  let number = 1;
 
-  function loadPhoto() {
-    const imagePath = `photos/${carName}/${number}.jpg`;
-    const image = new Image();
-    image.onload = function () {
+  slidesContainer.innerHTML = '';
 
-      const photoNumber = number;
+  //Открываем слайдер СРАЗУ
+  photoSlider.classList.add('active');
 
-      /*
-                Фотография существует.
-                Добавляем её в слайдер.
-            */
-      const slide = document.createElement('div');
-      slide.className = 'slide main-photo-slide'; // добавили main-photo-slide для Infolabel
-      const img = document.createElement('img');
-      img.src = imagePath;
-      img.alt = carName;
-
-      // ==========================================
-      // ПРОВЕРЯЕМ, ЕСТЬ ЛИ ДОПОЛНИТЕЛЬНЫЕ ФОТО
-      // ========================================== от 105 до 117
-      const infoCheck = new Image();
-      infoCheck.onload = function () {
-
-        // Дополнительные фото существуют
-        // добавляем надпись доп.инфо
-
-        const infoLabel = document.createElement('div');
-        infoLabel.className = 'additional-info-label';
-        infoLabel.innerHTML = 'ⓘ Доп. инфо';
-        slide.appendChild(infoLabel);
-      };
-      // Проверяем первое дополнительное фото
-      infoCheck.src = `photos/${carName}/${photoNumber}/1.jpg`;
-
-      // ВАЖНО:
-      // Клик по основной фотографии
-      // открывает дополнительный слайдер
-
-      img.addEventListener('click', function () {
-        openInfoSlider(
-          carName,
-          photoNumber
-        );
-      });
-
-
-
-      slide.appendChild(img);
-      slidesContainer.appendChild(slide);
+  //Начинаем загружать фотографии
+  loadNextPhoto(carName, 1);
+}
+// ==============================
+// ЗАГРУЗИТЬ СЛЕДУЮЩУЮ ФОТОГРАФИЮ
+// ==============================
+function loadNextPhoto(carName, number) {
+  findImage(
+    `photos/${carName}/${number}`,
+    function (imagePath) {
+      //фотография найдена
+      createMainSlide(
+        carName,
+        number,
+        imagePath
+      );
       totalSlides++;
-      number++;
-      /* Проверяем следующую */
-      loadPhoto();
-    };
 
-    image.onerror = function () {
-      /*
-                Фотографии больше нет.
-                Значит заканчиваем поиск.
-            */
+      //Показываем первое фото
+      if (number === 1) {
+        updateSlide();
+      }
+      //ищем следующую
+      loadNextPhoto(
+        carName,
+        number + 1
+      );
+    },
+    function () {
+      //фотографии закончились
       if (totalSlides === 0) {
+        photoSlider.classList.remove('active');
         alert(
           `Фотографии для "${carName}" не найдены`
         );
-        return;
       }
-      /* Открываем слайдер */
-      photoSlider.classList.add('active');
-      updateSlide();
-    };
-    image.src = imagePath;
-  }
-  loadPhoto();
+    }
+  );
 }
+// ======================
+// ПОИСК WEBP / JPG / JPEG
+// ======================
+
+function findImage(basePath, success, error) {
+  const extensions = [
+    '.webp',
+    '.jpg',
+    '.jpeg'
+  ];
+  let index = 0;
+
+  function tryNext() {
+    if (index >= extensions.length) {
+      error();
+      return;
+    }
+    const image = new Image();
+    image.onload = function () {
+      success(
+        basePath + extensions[index]
+      );
+    };
+    image.onerror = function () {
+      index++;
+      tryNext();
+    };
+    image.src = basePath + extensions[index];
+  }
+  tryNext();
+}
+// =====================
+// СОЗДАТЬ ОСНОВНОЙ СЛАЙД
+// =====================
+function createMainSlide(
+  carName,
+  photoNumber,
+  imagePath
+) {
+  const slide = document.createElement('div');
+  slide.className = 'slide main-photo-slide';
+  const img = document.createElement('img');
+  img.alt = carName;
+
+  //Первое фото грузим приоритетно
+  if (photoNumber === 1) {
+    img.fetchPriority = 'high';
+  } else {
+    img.loading = 'lazy';
+  }
+  img.decoding = 'async';
+  img.src = imagePath;
+  // =======================
+  // ПРОВЕРКА ДОП. ИНФОРМАЦИИ
+  // =======================
+  checkAdditionalInfo(
+    carName,
+    photoNumber,
+    slide
+  );
+  // ===========
+  // КЛИК ПО ФОТО
+  // ===========
+  img.addEventListener('click', function () {
+    openInfoSlider(
+      carName,
+      photoNumber
+    );
+  });
+  slide.appendChild(img);
+  slidesContainer.appendChild(slide);
+}
+// ======================
+// ПРОВЕРИТЬ ДОП. ИНФОРМАЦИЮ
+// ======================
+function checkAdditionalInfo(carName, photoNumber, slide) {
+  findImage(
+    `photos/${carName}/${photoNumber}/1`,
+    function () {
+      //дополнительное фото существует
+      const label = document.createElement('div');
+      label.className = 'additional-info-label';
+      label.textContent = 'ⓘ Доп. инфо';
+      slide.appendChild(label);
+    },
+    function () {
+      //доп. информации нет
+    }
+  );
+}
+
+
+
+
+
+/* ================================= */
+/*  конец        ОТКРЫТЬ СЛАЙДЕР     читает  фото jpeg и webp формат     */
+/* ================================= */
 
 /* ================================= */
 /*        ПЕРЕЙТИ К СЛАЙДУ           */
