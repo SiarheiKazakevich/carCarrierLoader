@@ -1,0 +1,51 @@
+{
+  "_comment1": "ADERO",
+  "_comment1.3": "Qty3",
+  "Renault Master AQ3": {
+    "main": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp",
+      "6.webp"
+    ]
+  },
+  "_comment2": "Kassbohrer",
+  "_comment3": "Lohr",
+  "_comment3.3": "Qty3",
+  "Renault Master - Siarhei Kazakevich": {
+    "main": [
+      "1.webp"
+    ],
+    "info": {
+      "1": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp"
+      ]
+    }
+  },
+  "_comment3.5": "Qty5",
+  "Ford Raptor - Siarhei Kazakevich LQ5": {
+    "main": [
+      "1.webp"
+    ],
+    "info": {
+      "1": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp",
+        "8.webp"
+      ]
+    }
+  }
+}
