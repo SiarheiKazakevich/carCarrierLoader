@@ -82,9 +82,6 @@ async function openSlider(carName) {
     }
   }
 
-
-
-
   const carData = photoCatalog[carName];
   if (!carData || !carData.main) {
     alert(`Фотографии для "${carName}" не найдены`);
@@ -108,10 +105,6 @@ async function openSlider(carName) {
   //Показываем первое фото
   updateSlide();
 
-  //загружаем первое фото
-  //loadImage(0);          //Этого нет в последнем обновлении
-  //подготавливаем соседнее фото
-  //preloadNearbyImages(0);   //Этого нет в последнем обновлении
 }
 
 // ==================================================
@@ -181,6 +174,48 @@ function preloadNearbyImages(index) {
   loadImage(index + 1, 'low');
 }
 
+
+// ==================================================
+// ПОКАЗАТЬ / СКРЫТЬ СТРЕЛКИ ОСНОВНОГО СЛАЙДЕРА  ---- начало
+// ==================================================
+function updateMainArrows() {
+  // Если фотография только одна —
+  // обе стрелки скрываем
+  if (totalSlides <= 1) {
+    prevButton.hidden = true;
+    nextButton.hidden = true;
+    return;
+  }
+  // ↑ показываем только если есть фото выше
+  prevButton.hidden = currentSlide === 0;
+
+  // ↓ показываем только если есть фото ниже
+  nextButton.hidden = currentSlide === totalSlides - 1;
+}
+// ==================================================
+// ПОКАЗАТЬ / СКРЫТЬ СТРЕЛКИ ОСНОВНОГО СЛАЙДЕРА  ---- конец
+// ==================================================
+// ==================================================
+// ПОКАЗАТЬ / СКРЫТЬ СТРЕЛКИ ДОПОЛНИТЕЛЬНОГО СЛАЙДЕРА ---- начало
+// ==================================================
+function updateInfoArrows() {
+  // Если дополнительное фото только одно —
+  // обе стрелки скрываем
+  if (totalInfoSlides <= 1) {
+    infoPrevButton.hidden = true;
+    infoNextButton.hidden = true;
+    return;
+  }
+  // ↑ показываем только если есть фото выше
+  infoPrevButton.hidden = currentInfoSlide === 0;
+
+  // ↓ показываем только если есть фото ниже
+  infoNextButton.hidden = currentInfoSlide === totalInfoSlides - 1;
+}
+// ==================================================
+// ПОКАЗАТЬ / СКРЫТЬ СТРЕЛКИ ДОПОЛНИТЕЛЬНОГО СЛАЙДЕРА ---- конец
+// ==================================================
+
 // ==================================================
 // ОПРЕДЕЛИТЬ ФОТО ПО ПОЗИЦИИ ПРОКРУТКИ
 // ==================================================
@@ -230,6 +265,9 @@ function updateSlide() {
 
   //Подготавливаем соседние изображения
   preloadNearbyImages(currentSlide);
+
+  // Обновляем состояние стрелок
+  updateMainArrows();
 }
 
 
@@ -262,6 +300,8 @@ slidesContainer.addEventListener('scroll', function () {
         preloadNearbyImages(
           currentSlide
         );
+        // Обновляем стрелки
+        updateMainArrows();
       }
     });
 },
@@ -338,10 +378,7 @@ function openInfoSlider(carName, photoNumber) {
   infoSlider.classList.add('active');
   // Переходим к первому дополнительному фото
   updateInfoSlide();
-  //загружаем первое доп.фото
-  //loadInfoImage(0);   //этого нет в последнем обновлении
-  //загружаем соседнее
-  //preloadInfoImages(0); //этого нет в последнем обновлении
+
 }
 
 // ==================================================
@@ -385,6 +422,8 @@ function updateInfoSlide() {
   loadInfoImage(currentInfoSlide, 'high');
   // Соседние
   preloadInfoImages(currentInfoSlide);
+  // Обновляем стрелки
+  updateInfoArrows();
 }
 
 // ==================================================
@@ -416,6 +455,8 @@ infoSlidesContainer.addEventListener(
           preloadInfoImages(
             currentInfoSlide
           );
+          // Обновляем стрелки
+          updateInfoArrows();
         }
       }
     );
