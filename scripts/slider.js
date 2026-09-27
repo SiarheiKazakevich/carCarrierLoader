@@ -108,18 +108,10 @@ async function openSlider(carName) {
   //Показываем первое фото
   updateSlide();
 
-  /*//загружаем первое фото с высоким приоритетом
-  const firstImage = slidesContainer.querySelector('img');
-
-  if (firstImage) {
-    firstImage.loading = 'eager'; // Возможна ошибка
-    firstImage.fetchPriority = 'high';
-  }*/
-
   //загружаем первое фото
-  loadImage(0);
+  //loadImage(0);          //Этого нет в последнем обновлении
   //подготавливаем соседнее фото
-  preloadNearbyImages(0);
+  //preloadNearbyImages(0);   //Этого нет в последнем обновлении
 }
 
 // ==================================================
@@ -184,9 +176,38 @@ function loadImage(index, priority = 'auto') {
 // ==================================================
 function preloadNearbyImages(index) {
   //предыдущее фото
-  loadImage(index - 1);
+  loadImage(index - 1, 'low');
   //следующее фото
-  loadImage(index + 1);
+  loadImage(index + 1, 'low');
+}
+
+// ==================================================
+// ОПРЕДЕЛИТЬ ФОТО ПО ПОЗИЦИИ ПРОКРУТКИ
+// ==================================================
+
+function getCurrentSlideIndex(container) {
+  const slides = container.querySelectorAll('.slide');
+  if (!slides.length) {
+    return 0;
+  }
+  const containerRect = container.getBoundingClientRect();
+
+  let closestIndex = 0;
+  let closestDistance = Infinity;
+  slides.forEach((slide, index) => {
+    const slideRect = slide.getBoundingClientRect();
+
+    const distance = Math.abs(
+      slideRect.top - containerRect.top
+    );
+    if (
+      distance < closestDistance
+    ) {
+      closestDistance = distance;
+      closestIndex = index;
+    }
+  });
+  return closestIndex;
 }
 
 // ==================================================
@@ -211,28 +232,43 @@ function updateSlide() {
   preloadNearbyImages(currentSlide);
 }
 
-// ==================================================
-// ПРЕДВАРИТЕЛЬНАЯ ЗАГРУЗКА СОСЕДНИХ ФОТО
-// ==================================================
-/*function preloadNearbyImages(index) {
-  const images = slidesContainer.querySelectorAll('img');
 
-  const indexesToPreload = [
-    index - 1,
-    index + 1
-  ];
-  indexesToPreload.forEach(preloadIndex => {
-    if (
-      preloadIndex >= 0 && preloadIndex < images.length
-    ) {
-      const img = images[preloadIndex];
-      img.loading = 'eager';
-
-      //Браузер начнет загружать соседнее фото
-      img.src = img.src;
-    }
-  });
-}*/
+// ==================================================
+// ОБРАБОТКА ПРОКРУТКИ ОСНОВНОГО СЛАЙДЕРА
+// ==================================================
+let mainScrollTimer = null;
+slidesContainer.addEventListener('scroll', function () {
+  //не вызываем расчет сотни раз подряд 
+  //во время быстрого скролла
+  if (mainScrollTimer) {
+    return;
+  }
+  mainScrollTimer = requestAnimationFrame(
+    function () {
+      mainScrollTimer = null;
+      const newIndex = getCurrentSlideIndex(
+        slidesContainer
+      );
+      //если перешли на другое фото
+      if (
+        newIndex !== currentSlide
+      ) {
+        currentSlide = newIndex;
+        //загружаем текущее
+        loadImage(currentSlide,
+          'high'
+        );
+        // и соседние
+        preloadNearbyImages(
+          currentSlide
+        );
+      }
+    });
+},
+  {
+    passive: true
+  }
+);
 
 // ==================================================
 // СЛЕДУЮЩЕЕ ОСНОВНОЕ ФОТО
@@ -277,7 +313,9 @@ function openInfoSlider(carName, photoNumber) {
   currentInfoSlide = 0;
   totalInfoSlides = infoFiles.length;
 
-  //Создаем дополнительные слайды
+
+  // СОЗДАЁМ ДОПОЛНИТЕЛЬНЫЕ СЛАЙДЫ
+
   infoFiles.forEach((fileName, index) => {
     const slide = document.createElement('div');
     slide.className = 'slide';
@@ -294,13 +332,16 @@ function openInfoSlider(carName, photoNumber) {
 
   //Сохраняем позицию основного фото
   currentSlide = photoNumber - 1;
+  // Закрываем основной слайдер
   photoSlider.classList.remove('active');
+  // Открываем дополнительный
   infoSlider.classList.add('active');
+  // Переходим к первому дополнительному фото
   updateInfoSlide();
   //загружаем первое доп.фото
-  loadInfoImage(0);
+  //loadInfoImage(0);   //этого нет в последнем обновлении
   //загружаем соседнее
-  preloadInfoImages(0);
+  //preloadInfoImages(0); //этого нет в последнем обновлении
 }
 
 // ==================================================
@@ -312,6 +353,7 @@ function loadInfoImage(index, priority = 'auto') {
     return;
   }
   const img = images[index];
+  // Уже загружено
   if (img.src) {
     return;
   }
@@ -323,8 +365,9 @@ function loadInfoImage(index, priority = 'auto') {
 // ЗАГРУЗИТЬ СОСЕДНИЕ ДОПОЛНИТЕЛЬНЫЕ ФОТО
 // ==================================================
 function preloadInfoImages(index) {
-  loadInfoImage(index - 1);
-  loadInfoImage(index + 1);
+  loadInfoImage(index - 1, 'low');
+  // Следующее
+  loadInfoImage(index + 1, 'low');
 }
 // ==================================================
 // ПЕРЕЙТИ К ДОПОЛНИТЕЛЬНОМУ СЛАЙДУ
@@ -338,10 +381,49 @@ function updateInfoSlide() {
     behavior: 'smooth',
     block: 'start'
   });
-
+  // Текущее фото
   loadInfoImage(currentInfoSlide, 'high');
+  // Соседние
   preloadInfoImages(currentInfoSlide);
 }
+
+// ==================================================
+// ОБРАБОТКА ПРОКРУТКИ ДОПОЛНИТЕЛЬНОГО СЛАЙДЕРА
+// ==================================================
+let infoScrollTimer = null;
+infoSlidesContainer.addEventListener(
+  'scroll',
+  function () {
+    if (infoScrollTimer) {
+      return;
+    }
+    infoScrollTimer = requestAnimationFrame(
+      function () {
+        infoScrollTimer = null;
+        const newIndex = getCurrentSlideIndex(
+          infoSlidesContainer
+        );
+        // Если пользователь колесом
+        // или пальцем перешёл
+        // на другое фото
+        if (newIndex !== currentInfoSlide) {
+          currentInfoSlide = newIndex;
+          // Загружаем текущее
+          loadInfoImage(
+            currentInfoSlide, 'high'
+          );
+          // Загружаем соседние
+          preloadInfoImages(
+            currentInfoSlide
+          );
+        }
+      }
+    );
+  },
+  {
+    passive: true
+  }
+);
 
 // ==================================================
 // СЛЕДУЮЩЕЕ ДОПОЛНИТЕЛЬНОЕ ФОТО
