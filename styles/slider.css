@@ -173,6 +173,7 @@
   .photo-slider .arrow {
     width: 40px;
     height: 40px;
+    border: 1px solid #edf508;
 
     font-size: 20px;
   }
