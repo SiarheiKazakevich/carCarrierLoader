@@ -14,7 +14,37 @@
   "_comment2": "Kassbohrer",
   "_comment3": "Lohr",
   "_comment3.3": "Qty3",
-  "Renault Master - Siarhei Kazakevich": {
+  "All cars of Qty3": {
+    "main": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp",
+      "6.webp",
+      "7.webp"
+    ],
+    "info": {
+      "1": [
+        "1.webp",
+        "2.webp"
+      ],
+      "2": [
+        "1.webp",
+        "2.webp"
+      ],
+      "3": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp"
+      ]
+    }
+  },
+  "Renault Master - Siarhei Kazakevich LQ3": {
     "main": [
       "1.webp"
     ],
