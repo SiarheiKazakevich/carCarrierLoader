@@ -61,6 +61,40 @@
     }
   },
   "_comment3.5": "Qty5",
+  "All cars of Qty5": {
+    "main": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp",
+      "6.webp",
+      "7.webp",
+      "8.webp",
+      "9.webp",
+      "10.webp"
+    ],
+    "info": {
+      "1": [
+        "1.webp",
+        "2.webp"
+      ],
+      "2": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp",
+        "8.webp"
+      ],
+      "3": [
+        "1.webp",
+        "2.webp"
+      ]
+    }
+  },
   "Ford Raptor - Siarhei Kazakevich LQ5": {
     "main": [
       "1.webp"
