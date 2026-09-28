@@ -17,6 +17,9 @@
 
  body {
    min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   margin-top: auto;
    background:
      radial-gradient(circle at top left, #202936 0, transparent 38%),
      var(--bg);
@@ -224,13 +227,14 @@
  /* -------footer--------- */
  .footer {
 
-   position: fixed;
-   z-index: 1000;
+   position: static;
+   /*z-index: 1000;
    bottom: 0;
    left: 0;
-   /**/
+   */
    /*background: #333;*/
    width: 100%;
+   box-sizing: border-box;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -261,6 +265,9 @@
    color: rgb(245, 240, 240);
  }
 
+ .footer.hidden {
+   display: none;
+ }
 
  /* =========================
        МОБИЛЬНЫЕ

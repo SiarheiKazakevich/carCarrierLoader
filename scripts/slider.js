@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll('.slider-item');
+const footer = document.querySelector('.footer');
 // ==================================================
 // ОСНОВНОЙ СЛАЙДЕР
 // ==================================================
@@ -92,6 +93,7 @@ async function openSlider(carName) {
   slidesContainer.innerHTML = '';
   totalSlides = carData.main.length;
   photoSlider.classList.add('active');
+  footer.classList.add('hidden');  //скрываем футер
 
   //создаем все слайды без немедленной загрузки всех фото
   carData.main.forEach((fileName, index) => {
@@ -335,6 +337,7 @@ prevButton.addEventListener('click', function () {
 // ==================================================
 closeButton.addEventListener('click', function () {
   photoSlider.classList.remove('active');
+  footer.classList.remove('hidden');  //появление футера
 });
 
 // ==================================================
@@ -376,6 +379,8 @@ function openInfoSlider(carName, photoNumber) {
   photoSlider.classList.remove('active');
   // Открываем дополнительный
   infoSlider.classList.add('active');
+  //скрываем футер
+  footer.classList.add('hidden');
   // Переходим к первому дополнительному фото
   updateInfoSlide();
 
