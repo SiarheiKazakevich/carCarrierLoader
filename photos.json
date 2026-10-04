@@ -11,9 +11,112 @@
       "6.webp"
     ]
   },
-  "_comment2": "Kassbohrer",
-  "_comment3": "Lohr",
-  "_comment3.3": "Qty3",
+  "_comment2l": "Kassbohrer large cab",
+  "_comment2l.7": "Qty7",
+  "All cars of KlQty7": {
+    "main": [
+      "1.webp",
+      "2.webp"
+    ]
+  },
+  "_comment2l.8": "Qty8",
+  "All cars of KlQty8": {
+    "main": [
+      "1.webp"
+    ]
+  },
+  "_comment2l.10": "Qty10",
+  "All cars of KlQty10": {
+    "main": [
+      "1.webp"
+    ]
+  },
+  "_comment2s": "Kassbohrer small cab",
+  "_comment2s.3": "Qty3",
+  "All cars of KsQty3": {
+    "main": [
+      "1.webp",
+      "2.webp"
+    ]
+  },
+  "_comment2s.4": "Qty4",
+  "All cars of KsQty4": {
+    "main": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp",
+      "6.webp"
+    ]
+  },
+  "_comment2s.5": "Qty5",
+  "All cars of KsQty5": {
+    "main": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp",
+      "6.webp"
+    ],
+    "info": {
+      "1": [
+        "1.webp"
+      ]
+    }
+  },
+  "_comment2s.6": "Qty6",
+  "All cars of KsQty6": {
+    "main": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp"
+    ]
+  },
+  "_comment2s.7": "Qty7",
+  "All cars of KsQty7": {
+    "main": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp"
+    ]
+  },
+  "_comment2s.8": "Qty8",
+  "All cars of KsQty8": {
+    "main": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp",
+      "6.webp",
+      "7.webp"
+    ]
+  },
+  "_comment2s.9": "Qty9",
+  "All cars of KsQty9": {
+    "main": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp",
+      "6.webp"
+    ]
+  },
+  "_comment2s.10": "Qty10",
+  "All cars of KsQty10": {
+    "main": [
+      "1.webp",
+      "2.webp"
+    ]
+  },
+  "_comment3s": "Lohr small cab",
+  "_comment3s.3": "Qty3",
   "All cars of LsQty3": {
     "main": [
       "1.webp",
@@ -60,7 +163,7 @@
       ]
     }
   },
-  "_comment3.4": "Qty4",
+  "_comment3s.4": "Qty4",
   "All cars of LsQty4": {
     "main": [
       "1.webp",
@@ -77,7 +180,7 @@
       "12.webp"
     ]
   },
-  "_comment3.5": "Qty5",
+  "_comment3s.5": "Qty5",
   "All cars of LsQty5": {
     "main": [
       "1.webp",
@@ -129,7 +232,7 @@
       ]
     }
   },
-  "_comment3.6": "Qty6",
+  "_comment3s.6": "Qty6",
   "All cars of LsQty6": {
     "main": [
       "1.webp",
@@ -160,7 +263,7 @@
       ]
     }
   },
-  "_comment3.7": "Qty7",
+  "_comment3s.7": "Qty7",
   "All cars of LsQty7": {
     "main": [
       "1.webp",
@@ -206,7 +309,7 @@
       ]
     }
   },
-  "_comment3.8": "Qty8",
+  "_comment3s.8": "Qty8",
   "All cars of LsQty8": {
     "main": [
       "1.webp",
@@ -249,7 +352,7 @@
       ]
     }
   },
-  "_comment3.9": "Qty9",
+  "_comment3s.9": "Qty9",
   "All cars of LsQty9": {
     "main": [
       "1.webp",
@@ -284,7 +387,7 @@
       ]
     }
   },
-  "_comment3.10": "Qty10",
+  "_comment3s.10": "Qty10",
   "All cars of LsQty10": {
     "main": [
       "1.webp",
