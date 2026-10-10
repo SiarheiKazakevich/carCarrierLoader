@@ -215,9 +215,10 @@
       ]
     }
   },
-  "Ford Raptor - Siarhei Kazakevich LQ5": {
+  "Siarhei Kazakevich LsQty5": {
     "main": [
-      "1.webp"
+      "1.webp",
+      "2.webp"
     ],
     "info": {
       "1": [
@@ -228,7 +229,20 @@
         "5.webp",
         "6.webp",
         "7.webp",
-        "8.webp"
+        "8.webp",
+        "9.webp",
+        "10.webp"
+      ],
+      "2": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp",
+        "8.webp",
+        "9.webp"
       ]
     }
   },
@@ -273,7 +287,8 @@
         "8.webp",
         "9.webp",
         "10.webp",
-        "11.webp"
+        "11.webp",
+        "12.webp"
       ]
     }
   },
