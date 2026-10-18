@@ -116,6 +116,21 @@
     ]
   },
   "_comment3s": "Lohr small cab",
+  "_comment3s.2": "Qty2",
+  "Siarhei Kazakevich LsQty2": {
+    "main": [
+      "1.webp"
+    ],
+    "info": {
+      "1": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp"
+      ]
+    }
+  },
   "_comment3s.3": "Qty3",
   "All cars of LsQty3": {
     "main": [
@@ -125,7 +140,8 @@
       "4.webp",
       "5.webp",
       "6.webp",
-      "7.webp"
+      "7.webp",
+      "8.webp"
     ],
     "info": {
       "1": [
@@ -144,12 +160,23 @@
         "5.webp",
         "6.webp",
         "7.webp"
+      ],
+      "4": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp",
+        "8.webp"
       ]
     }
   },
-  "Renault Master - Siarhei Kazakevich LQ3": {
+  "Siarhei Kazakevich LsQty3": {
     "main": [
-      "1.webp"
+      "1.webp",
+      "2.webp"
     ],
     "info": {
       "1": [
@@ -160,6 +187,16 @@
         "5.webp",
         "6.webp",
         "7.webp"
+      ],
+      "2": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp",
+        "8.webp"
       ]
     }
   },
@@ -192,7 +229,8 @@
       "7.webp",
       "8.webp",
       "9.webp",
-      "10.webp"
+      "10.webp",
+      "11.webp"
     ],
     "info": {
       "1": [
@@ -212,6 +250,17 @@
       "3": [
         "1.webp",
         "2.webp"
+      ],
+      "4": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp",
+        "8.webp",
+        "9.webp"
       ]
     }
   },
@@ -329,12 +378,36 @@
       "32.webp",
       "33.webp",
       "34.webp",
-      "35.webp"
+      "35.webp",
+      "36.webp"
     ],
     "info": {
       "1": [
         "1.webp",
         "2.webp"
+      ],
+      "2": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp"
+      ]
+    }
+  },
+  "Siarhei Kazakevich LsQty7": {
+    "main": [
+      "1.webp"
+    ],
+    "info": {
+      "1": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp"
       ]
     }
   },
@@ -367,7 +440,8 @@
       "24.webp",
       "25.webp",
       "26.webp",
-      "27.webp"
+      "27.webp",
+      "28.webp"
     ],
     "info": {
       "1": [
@@ -392,12 +466,27 @@
         "9.webp",
         "10.webp",
         "11.webp"
+      ],
+      "4": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp",
+        "8.webp",
+        "9.webp",
+        "10.webp",
+        "11.webp",
+        "12.webp"
       ]
     }
   },
-  "Siarhei Kazakevich - LsQty8": {
+  "Siarhei Kazakevich LsQty8": {
     "main": [
-      "1.webp"
+      "1.webp",
+      "2.webp"
     ],
     "info": {
       "1": [
@@ -412,6 +501,20 @@
         "9.webp",
         "10.webp",
         "11.webp"
+      ],
+      "2": [
+        "1.webp",
+        "2.webp",
+        "3.webp",
+        "4.webp",
+        "5.webp",
+        "6.webp",
+        "7.webp",
+        "8.webp",
+        "9.webp",
+        "10.webp",
+        "11.webp",
+        "12.webp"
       ]
     }
   },
