@@ -605,5 +605,44 @@
       "1.webp",
       "2.webp"
     ]
+  },
+  "Mlf LsQty10": {
+    "main": [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp",
+      "6.webp",
+      "7.webp",
+      "8.webp"
+    ],
+    "info": {
+      "1": [
+        "1.webp"
+      ],
+      "2": [
+        "1.webp"
+      ]
+    }
+  },
+  "_comment3s.11": "Qty11",
+  "Mlf LsQty11": {
+    "main": [
+      "1.webp"
+    ]
+  },
+  "_comment3s.12": "Qty12",
+  "Mlf LsQty12": {
+    "main": [
+      "1.webp"
+    ],
+    "info": {
+      "1": [
+        "1.webp",
+        "2.webp",
+        "3.webp"
+      ]
+    }
   }
 }
